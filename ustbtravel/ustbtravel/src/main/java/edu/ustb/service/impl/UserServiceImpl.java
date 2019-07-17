@@ -23,15 +23,16 @@ public class UserServiceImpl implements UserService {
             //用户名存在，注册失败
             return false;
         }
+        //把邮件激活的功能注释掉了
         //2.保存用户信息
-        //2.1设置激活码，唯一字符串
-        user.setCode(UuidUtil.getUuid());
-        //2.2设置激活状态
-        user.setStatus("N");
+//        //2.1设置激活码，唯一字符串
+//        user.setCode(UuidUtil.getUuid());
+//        //2.2设置激活状态
+//        user.setStatus("N");
         userDao.save(user);
-
-        //3.激活邮件发送，邮件正文？
-        String content="<a href='http://localhost:9527/ustbtravel1/user/active?code="+user.getCode()+"'>点击激活【去哪儿网】</a>";
+//
+//        //3.激活邮件发送，邮件正文？
+//        String content="<a href='http://localhost:9527/ustbtravel1/user/active?code="+user.getCode()+"'>点击激活【去哪儿网】</a>";
        // MailUtils.sendMail(user.getEmail(),content,"激活邮件");
         return true;
     }

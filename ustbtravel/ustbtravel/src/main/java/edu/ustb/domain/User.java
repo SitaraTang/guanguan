@@ -114,11 +114,11 @@ public class User implements Serializable {
     }
 
     public String getStatus() {
-        return status;
+        return "Y";
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.status = "Y";
     }
 
     public String getCode() {

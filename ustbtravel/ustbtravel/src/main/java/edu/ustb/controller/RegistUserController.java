@@ -20,7 +20,7 @@ import edu.ustb.service.UserService;
 import edu.ustb.service.impl.UserServiceImpl;
 import edu.ustb.vo.ResultInfo;
 
-@WebServlet("/register.do")
+@WebServlet("/registUserServlet")
 public class RegistUserController extends HttpServlet {
 	private UserService service = new UserServiceImpl();
 
@@ -37,7 +37,9 @@ public class RegistUserController extends HttpServlet {
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
+		
 		// 调用service添加会员
+
 		boolean flag = service.regist(user);
 		// 封装响应信息
 		ResultInfo info = new ResultInfo();
