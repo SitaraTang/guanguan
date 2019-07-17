@@ -25,10 +25,10 @@ public class UserServiceImpl implements UserService {
         }
         //把邮件激活的功能注释掉了
         //2.保存用户信息
-//        //2.1设置激活码，唯一字符串
-//        user.setCode(UuidUtil.getUuid());
-//        //2.2设置激活状态
-//        user.setStatus("N");
+       //2.1设置激活码，唯一字符串
+        user.setCode(UuidUtil.getUuid());
+        //2.2设置激活状态
+        user.setStatus("Y");
         userDao.save(user);
 //
 //        //3.激活邮件发送，邮件正文？
