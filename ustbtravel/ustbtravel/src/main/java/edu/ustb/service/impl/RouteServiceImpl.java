@@ -12,9 +12,6 @@ import edu.ustb.vo.PageBean;
 
 public class RouteServiceImpl implements RouteService{
 	private RouteDao routeDao = new RouteDaoImpl();
-	private RouteImgDao routeImgDao = new RouteImgDaoImpl();
-	private SellerDao sellerDao = new SellerDaoImpl();
-	private FavoriteDao favoriteDao = new FavoriteDaoImpl();
 	
 	@Override
 	public PageBean<Route> pageQuery(int cid,int currentPage,int pageSize){
@@ -39,7 +36,7 @@ public class RouteServiceImpl implements RouteService{
 		int totalCount = routeDao.findTotalCount(cid,rname);
 		pb.setTotalCount(totalCount);
 		int start = (currentPage-1)*pageSize;
-		List<Route> list = routeDao.findByPage(cid, start, pageSize);
+		List<Route> list = routeDao.findByPage(cid, start, pageSize,rname);
 		pb.setList(list);
 		int totalPage = totalCount % pageSize == 0 ? totalCount/pageSize : totalCount/pageSize+1;
 		pb.setTotalPage(totalPage);

@@ -29,7 +29,7 @@
 
         function load(cid ,currentPage,rname){
             //发送ajax请求，请求route/pageQuery,传递cid
-            $.get("route/pageQueryByRouteName",{cid:cid,currentPage:currentPage,rname:rname},function (pb) {
+            $.get("route/load",{cid:cid,currentPage:currentPage,rname:rname},function (pb) {
                 //解析pagebean数据，展示到页面上
                 //1.分页工具条数据展示
                 //1.1 展示总页码和总记录数
@@ -152,7 +152,7 @@
                 <ul id="route"></ul>
                 <div class="page_num_inf">
                     <i></i> 共
-                    <span id="totalPage">12</span>页<span id="totalCount">132</span>条
+                    <span id="totalPage">${pb.totalPage}</span>页<span id="totalCount">${pb.totalCount}</span>条
                 </div>
                 <div class="pageNum">
                     <ul id="pageNum"></ul>

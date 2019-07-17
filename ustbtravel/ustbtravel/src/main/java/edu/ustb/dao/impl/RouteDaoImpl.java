@@ -43,9 +43,9 @@ public class RouteDaoImpl implements RouteDao{
 	}
 	
 	@Override
-	public List<Route> findByPage(int cid,String start,int pageSize,String rname) {
-		String sql = "select count(*) from tab_route where 1 = 1 ";
-		StringBuilder stringBuilder = new StringBuilder();
+	public List<Route> findByPage(int cid,int start,int pageSize,String rname) {
+		String sql = "select * from tab_route where 1 = 1 ";
+		StringBuilder stringBuilder = new StringBuilder(sql);
 		List params = new ArrayList();
 		if(cid != 0) {
 			stringBuilder.append(" and cid = ? ");
