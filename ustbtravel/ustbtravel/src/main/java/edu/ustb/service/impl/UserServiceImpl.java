@@ -57,7 +57,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		return null;//userDao.findByUsernameAndPassword(user.getUsername(),user.getPassword());
+		//findByUsernameAndPassword自己写！
 	}
 }
 
