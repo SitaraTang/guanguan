@@ -26,16 +26,20 @@ public class RouteController extends BaseServlet {
 		String cid = request.getParameter("cid");
 		String currentPage = request.getParameter("currentPage");
 		String rname = request.getParameter("rname");
+		PageBean<Route> pb=new PageBean<Route>();
 		if(cid=="") {
 			cid="0";
 		}
 		if(currentPage=="") {
 			currentPage="1";
 		}
+		if("null".equals(rname)) {
+			pb = routeServiceImpl.pageQuery(Integer.parseInt(cid),Integer.parseInt(currentPage), 10,null);
+		}
 		//调用业务，查询
-		PageBean<Route> pb=new PageBean<Route>();
-		pb = routeServiceImpl.pageQuery(Integer.parseInt(cid),Integer.parseInt(currentPage), 10,rname);
-		
+		else {
+			pb = routeServiceImpl.pageQuery(Integer.parseInt(cid),Integer.parseInt(currentPage), 10,rname);
+		}
 		//响应数据
 		writeValue(pb, response);
 	}
