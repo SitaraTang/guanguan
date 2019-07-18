@@ -28,7 +28,7 @@ public class RouteDaoImpl implements RouteDao{
 	@Override
 	public int findTotalCount(int cid,String rname) {
 		String sql = "select count(*) from tab_route where 1 = 1 ";
-		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder(sql);
 		List params = new ArrayList();
 		if(cid != 0) {
 			stringBuilder.append(" and cid = ? ");
@@ -38,7 +38,7 @@ public class RouteDaoImpl implements RouteDao{
 			stringBuilder.append(" and rname like ? ");
 			params.add("%"+rname+"%");
 		}
-		
+		sql = stringBuilder.toString();
 		return template.queryForObject(sql, Integer.class,params.toArray());
 	}
 	
