@@ -1,5 +1,6 @@
 package edu.ustb.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.ustb.dao.RouteDao;
@@ -41,5 +42,16 @@ public class RouteServiceImpl implements RouteService{
 		int totalPage = totalCount % pageSize == 0 ? totalCount/pageSize : totalCount/pageSize+1;
 		pb.setTotalPage(totalPage);
 		return pb;
+	}
+	
+	@Override
+	public Route findByRid(int rid){
+		return routeDao.findByRid(rid).get(0);
+	}
+	
+	@Override
+	public List<RouteImg> findImgByRid(int rid){
+		return routeDao.findImgByRid(rid);
+
 	}
 }

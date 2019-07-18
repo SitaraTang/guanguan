@@ -18,7 +18,7 @@
             <a href="/">首页</a>
             <span> &gt;</span>
             <a href="#">国内游</a><span> &gt;</span>
-            <a href="#">全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</a>
+            <a href="#"><ul id="rname1"></ul></a>
         </div>
         <div class="prosum_box">
             <dl class="prosum_left">
@@ -58,20 +58,21 @@
                 </dd>
             </dl>
             <div class="prosum_right">
-               <p class="pros_title" id="rname">【尾单特卖】全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</p>
-                <p class="hot" id="routeIntroduce">1-2月出发，网付立享￥1099/2人起！爆款位置有限，抢完即止！</p>
+               <p class="pros_title" id="rname"></p>
+                <p class="hot" id="routeIntroduce"></p>
                 <div class="pros_other">
-                    <p >经营商家  ：<span id="sname">国旅</span></p>
-                    <p >咨询电话 : <span id="consphone">400-618-9090</span></p>
-                    <p >地址 ： <span id="address">去哪儿玩家</span></p>
+                    <p >经营商家  ：<span id="sname">cjc</span></p>
+                    <p >咨询电话 : <span id="consphone">12345678901</span></p>
+                    <p >地址 ： <span id="address">甲骨文开发中心</span></p>
                 </div>
                 <div class="pros_price">
-                    <p class="price"><strong id="price">¥2699.00</strong><span>起</span></p>
+                    <p class="price"><strong id="price"></strong><span>起</span></p>
                     <p class="collect">
                         <a class="btn" id="favorite" onclick="addFavorite();"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
 
                        <!-- <a  class="btn already" disabled="disabled"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>-->
-                        <span id="favoriteCount">已收藏100次</span>
+                        <span id="favoriteCount"></span>
+                        <p class="pros_title" id="favoriteCount"><strong id="price"></strong></p>
                     </p>
                 </div>        
             </div>
@@ -116,7 +117,7 @@
 
         //自动播放
         goImg();
-        // var timer = setInterval("auto_play()", 5000);
+        var timer = setInterval("auto_play()", 5000);
     });
     function goImg(){
         //焦点图效果
@@ -179,6 +180,7 @@
         $.get("route/findOne",{rid:rid},function (route) {
             //3.解析数据填充html
             $("#rname").html(route.rname);
+            $("#rname1").html(route.rname);
             $("#routeIntroduce").html(route.routeIntroduce);
             $("#price").html("¥"+route.price);
             $("#sname").html(route.seller.sname);
@@ -245,7 +247,7 @@
            }else{
                //用户没有登录
                alert("您尚未登录，请登录");
-               location.href="http://localhost:8080/travel/login.html";
+           	   location.href=location.origin+"/ustbtravel/login.html";
            }
         })
     }

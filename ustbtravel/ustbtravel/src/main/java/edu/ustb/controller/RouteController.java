@@ -1,6 +1,9 @@
 package edu.ustb.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import edu.ustb.domain.Route;
+import edu.ustb.domain.RouteImg;
 import edu.ustb.service.RouteService;
 import edu.ustb.service.impl.RouteServiceImpl;
 import edu.ustb.vo.PageBean;
@@ -16,7 +20,7 @@ import edu.ustb.vo.PageBean;
 /**
  * Servlet implementation class RouteController
  */
-@WebServlet("/route/load")
+@WebServlet("/route/*")
 public class RouteController extends BaseServlet {
 	private RouteService routeServiceImpl = new RouteServiceImpl();
 
@@ -38,5 +42,15 @@ public class RouteController extends BaseServlet {
 		
 		//响应数据
 		writeValue(pb, response);
+	}
+	
+	public void findOne(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rid = request.getParameter("rid");
+		Route route = new Route();
+		List<RouteImg> routeImgList=new ArrayList();
+		route = routeServiceImpl.findByRid(Integer.parseInt(rid));
+		routeImgList = routeServiceImpl.findImgByRid(Integer.parseInt(rid));
+		route.setRouteImgList(routeImgList);
+		writeValue(route, response);
 	}
 }

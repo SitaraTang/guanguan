@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.ustb.dao.RouteDao;
 import edu.ustb.domain.Route;
+import edu.ustb.domain.RouteImg;
 import edu.ustb.util.JDBCUtils;
 
 public class RouteDaoImpl implements RouteDao{
@@ -62,5 +63,21 @@ public class RouteDaoImpl implements RouteDao{
 		params.add(pageSize);
 		
 		return template.query(sql, new BeanPropertyRowMapper<Route>(Route.class),params.toArray());
+	}
+	
+	@Override
+	public List<Route> findByRid(int rid){
+		String sql="select * from tab_route where rid=?";
+		
+		return template.query(sql, new BeanPropertyRowMapper<Route>(Route.class),rid);
+	}
+	
+	@Override
+	public List<RouteImg> findImgByRid(int rid){
+		String sql="select * from tab_route_img where rid=?";
+		
+		return template.query(sql, new BeanPropertyRowMapper<RouteImg>(RouteImg.class),rid);
+
+		
 	}
 }
