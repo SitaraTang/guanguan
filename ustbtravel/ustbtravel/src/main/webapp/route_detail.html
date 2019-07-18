@@ -178,15 +178,6 @@
        //2.发送请求请求 route/findOne
         $.get("route/findOne",{rid:rid},function (route) {
             //3.解析数据填充html
-            $("#rname").html(route.rname);
-            $("#rname1").html(route.rname);
-            $("#routeIntroduce").html(route.routeIntroduce);
-            $("#price").html("¥"+route.price);
-            $("#sname").html(route.seller.sname);
-            $("#consphone").html(route.seller.consphone);
-            $("#address").html(route.seller.address);
-            //设置收藏次数
-            $("#favoriteCount").html("已收藏"+route.count+"次");
             //图片展示
             var ddstr = '<a class="up_img up_img_disable"></a>';
             //遍历routeImgList
@@ -207,9 +198,21 @@
             }
             ddstr+='<a class="down_img down_img_disable" style="margin-bottom: 0;"></a>';
             $("#dd").html(ddstr);
-            //图片展示和切换代码调用
             goImg();
             auto_play();
+            $("#rname").html(route.rname);
+            $("#rname1").html(route.rname);
+            $("#favoriteCount").html("已收藏"+route.count+"次");
+            $("#routeIntroduce").html(route.routeIntroduce);
+            $("#price").html("¥"+route.price);
+            $("#sname").html(route.seller.sname);
+            $("#consphone").html(route.seller.consphone);
+            $("#address").html(route.seller.address);
+            //设置收藏次数
+            
+            
+            //图片展示和切换代码调用
+            
         });
     });
 
