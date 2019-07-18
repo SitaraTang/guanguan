@@ -16,7 +16,7 @@ import edu.ustb.vo.PageBean;
 /**
  * Servlet implementation class RouteController
  */
-@WebServlet("/route/load")
+@WebServlet("/route/*")
 public class RouteController extends BaseServlet {
 	private RouteService routeServiceImpl = new RouteServiceImpl();
 
@@ -34,9 +34,13 @@ public class RouteController extends BaseServlet {
 		}
 		//调用业务，查询
 		PageBean<Route> pb=new PageBean<Route>();
-		pb = routeServiceImpl.pageQuery(Integer.parseInt(cid),Integer.parseInt(currentPage), 10,null);
+		pb = routeServiceImpl.pageQuery(Integer.parseInt(cid),Integer.parseInt(currentPage), 10,rname);
 		
 		//响应数据
 		writeValue(pb, response);
+	}
+	
+	public void findOne(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rid = request.getParameter("rid");
 	}
 }
