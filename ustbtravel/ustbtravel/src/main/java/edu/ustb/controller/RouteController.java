@@ -67,5 +67,14 @@ public class RouteController extends BaseServlet {
 		String rid=request.getParameter("rid");  
 		User user = (User) request.getSession().getAttribute("user");
 		favoriteService.saveFavorite(user, rid);
+		favoriteService.sqlFavorite(rid);
+	}
+	
+	public void isFavorite(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rid=request.getParameter("rid");  
+		User user = (User) request.getSession().getAttribute("user");
+		boolean flag = false;
+		flag = favoriteService.isFavorite(user, rid);
+		writeValue(flag, response);
 	}
 }

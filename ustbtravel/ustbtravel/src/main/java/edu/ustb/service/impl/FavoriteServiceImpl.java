@@ -12,4 +12,10 @@ public class FavoriteServiceImpl implements FavoriteService{
 	public void saveFavorite(User user, String rid) {
 		favoriteDao.saveFavorite(user, rid);
 	}
+	public boolean isFavorite(User user, String rid) {
+		return favoriteDao.isFavorite(user, rid);
+	}
+	public int sqlFavorite(String rid) {
+		return favoriteDao.sqlFavorite(rid);
+	}
 }
