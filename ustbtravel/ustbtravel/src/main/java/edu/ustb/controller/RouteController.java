@@ -13,8 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import edu.ustb.domain.Route;
 import edu.ustb.domain.RouteImg;
+import edu.ustb.domain.User;
 import edu.ustb.service.RouteService;
+import edu.ustb.service.FavoriteService;
+import edu.ustb.service.impl.FavoriteServiceImpl;
 import edu.ustb.service.impl.RouteServiceImpl;
+import edu.ustb.service.RouteService;
 import edu.ustb.vo.PageBean;
 
 /**
@@ -23,6 +27,7 @@ import edu.ustb.vo.PageBean;
 @WebServlet("/route/*")
 public class RouteController extends BaseServlet {
 	private RouteService routeServiceImpl = new RouteServiceImpl();
+	private FavoriteService favoriteService = new FavoriteServiceImpl();
 
 
 	public void load(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,5 +61,11 @@ public class RouteController extends BaseServlet {
 		routeImgList = routeServiceImpl.findImgByRid(Integer.parseInt(rid));
 		route.setRouteImgList(routeImgList);
 		writeValue(route, response);
+	}
+	
+	public void addFavorite(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rid=request.getParameter("rid");  
+		User user = (User) request.getSession().getAttribute("user");
+		favoriteService.saveFavorite(user, rid);
 	}
 }
