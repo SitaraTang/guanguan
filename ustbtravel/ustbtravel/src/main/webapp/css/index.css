@@ -154,4 +154,34 @@
 	
 }
 
+/*境外游*/
+
+
+.heima_gn{
+	width: 100%;
+    overflow: hidden;
+}
+.guonei_l, 
+.guone_r {
+	float: left;
+}
+.guonei_l {
+	width:360px;
+	height: 490px;
+	margin-right: 50px;
+	margin-top: 10px;
+}
+.guone_r {
+	width:790px;
+	height: 490px;
+}
+.guone_r .row>div {
+	margin-top: 10px;
+}
+
+
+.fl {
+	float: left;
+	
+}
 

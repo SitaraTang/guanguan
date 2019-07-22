@@ -36,7 +36,8 @@ public class RouteDaoImpl implements RouteDao{
 			params.add(cid);
 		}
 		if(rname != null && rname.length() > 0) {
-			stringBuilder.append(" and rname like ? ");
+			stringBuilder.append(" and (rname like ? or price like ?) ");
+			params.add("%"+rname+"%");
 			params.add("%"+rname+"%");
 		}
 		sql = stringBuilder.toString();
@@ -53,7 +54,8 @@ public class RouteDaoImpl implements RouteDao{
 			params.add(cid);
 		}
 		if(rname != null && rname.length() > 0) {
-			stringBuilder.append(" and rname like ? ");
+			stringBuilder.append(" and (rname like ? or price like ?) ");
+			params.add("%"+rname+"%");
 			params.add("%"+rname+"%");
 		}
 		stringBuilder.append(" limit ?,? ");

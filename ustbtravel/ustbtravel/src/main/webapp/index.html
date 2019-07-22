@@ -17,6 +17,99 @@
     <script src="js/bootstrap.min.js"></script>
     <!--导入布局js，共享header和footer-->
     <script type="text/javascript" src="js/include.js"></script>
+    <script src="js/getParameter.js"></script>
+    <script>
+    <!--国内游-->
+        $(function () {
+            $.get("rt/find?cid=5",{},function(rtList){
+                var lis="";
+                for(var i=0;i<6;i++){
+                    var rt=rtList[i];
+                    var li=
+                        '<div class="col-md-4">\n'+
+                        '   <a href="route_detail.html?rid='+rt.rid+'">\n'+
+                        '       <img src="'+rt.rimage+'" alt="">\n'+
+                        '       <div class="has_border">\n'+
+                        '           <h3>'+rt.rname+'</h3>\n'+
+                        '           <div class="price">网付价<em>￥</em><strong>'+rt.price+'</strong><em>起</em></div>\n'+
+                        '       </div>\n'+
+                        '   </a>\n'+
+                        '</div>';
+                    lis+=li;
+                }
+                $("#inCountry").html(lis);
+            })
+        });
+        <!--国内游-->
+        <!--境外游-->
+        $(function () {
+            $.get("rt/find?cid=4",{},function(rtList){
+                var lis="";
+                for(var i=0;i<6;i++){
+                    var rt=rtList[i];
+                    var li=
+                        '<div class="col-md-4">\n'+
+                        '   <a href="route_detail.html?rid='+rt.rid+'">\n'+
+                        '       <img src="'+rt.rimage+'" alt="">\n'+
+                        '       <div class="has_border">\n'+
+                        '           <h3>'+rt.rname+'</h3>\n'+
+                        '           <div class="price">网付价<em>￥</em><strong>'+rt.price+'</strong><em>起</em></div>\n'+
+                        '       </div>\n'+
+                        '   </a>\n'+
+                        '</div>';
+                    lis+=li;
+                }
+                $("#outCountry").html(lis);
+            })
+        });
+        <!--境外游-->
+        <!--全球自由行-->
+        $(function () {
+            $.get("rt/find?cid=8",{},function(rtList){
+                var lis="";
+                for(var i=0;i<6;i++){
+                    var rt=rtList[i];
+                    var li=
+                        '<div class="col-md-4">\n'+
+                        '   <a href="route_detail.html?rid='+rt.rid+'">\n'+
+                        '       <img src="'+rt.rimage+'" alt="">\n'+
+                        '       <div class="has_border">\n'+
+                        '           <h3>'+rt.rname+'</h3>\n'+
+                        '           <div class="price">网付价<em>￥</em><strong>'+rt.price+'</strong><em>起</em></div>\n'+
+                        '       </div>\n'+
+                        '   </a>\n'+
+                        '</div>';
+                    lis+=li;
+                }
+                $("#global").html(lis);
+            })
+        });
+        <!--全球自由行-->
+        <!--抱团定制-->
+        $(function () {
+            $.get("rt/find?cid=7",{},function(rtList){
+                var lis="";
+                for(var i=0;i<6;i++){
+                    var rt=rtList[i];
+                    var li=
+                        '<div class="col-md-4">\n'+
+                        '   <a href="route_detail.html?rid='+rt.rid+'">\n'+
+                        '       <img src="'+rt.rimage+'" alt="">\n'+
+                        '       <div class="has_border">\n'+
+                        '           <h3>'+rt.rname+'</h3>\n'+
+                        '           <div class="price">网付价<em>￥</em><strong>'+rt.price+'</strong><em>起</em></div>\n'+
+                        '       </div>\n'+
+                        '   </a>\n'+
+                        '</div>';
+                    lis+=li;
+                }
+                $("#custom").html(lis);
+            })
+        });
+        <!--抱团定制-->
+        function load() {
+        }
+    </script>
    </head>
 <body>
 	<!--引入头部-->
@@ -56,7 +149,7 @@
     <!-- banner end-->
     <!-- 旅游 start-->
     <section id="content">
-         <!-- 去哪儿精选start-->
+<!-- 去哪儿精选start-->
         <section class="hemai_jx">
             <div class="jx_top">
                 <div class="jx_tit">
@@ -85,7 +178,7 @@
                     <div role="tabpanel" class="tab-pane active" id="popularity">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="route_detail.html">
+                                <a href="http://localhost:9527/ustbtravel/route_detail.html?rid=1">
                                     <img src="img/product/small/m304b69a4c8328f7d6b8d5dadef020fe07.jpg" alt="">
                                     <div class="has_border">
                                         <h3>【旅展 半价特惠 重走丝路•漫游宁夏 双飞4天】银川西部影视城 穆民新村 中卫沙坡头【品美酒 回族学唱花儿 感悟民俗</h3>
@@ -206,6 +299,7 @@
             </div>
         </section>
         <!-- 去哪儿精选end-->
+
         <!-- 国内游 start-->
         <section class="hemai_jx">
             <div class="jx_top">
@@ -219,61 +313,7 @@
                     <img src="images/guonei_1.jpg" alt="">
                 </div>
                 <div class="guone_r">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="img/product/small/m35b95dd85d2fe9fe53f743e618f67d891.jpg" alt="">
-								<div class="has_border">
-									<h3>【江西庐山 三清山 婺源纯玩双飞5天】庐山植物园 婺源篁岭“晒秋” 景德镇</h3>
-									<div class="price">网付价<em>￥</em><strong>1999</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="img/product/small/m3eedfb8ee93dfc041aa9dea6f2751a0d8.jpg" alt="">
-								<div class="has_border">
-									<h3>【安徽黄山 双飞4天跟团游】直飞黄山 住1晚山上 宏村探古 夜宿鲍家花园 品徽州火锅【超贵团</h3>
-									<div class="price">网付价<em>￥</em><strong>2099</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="img/product/small/m3cfa8355222bddde5a05ce589a602079f.jpg" alt="">
-								<div class="has_border">
-									<h3>【3.18出发 厨神夜宴·龙脊放水节 高铁3天·专场篝火晚会】龙脊古壮寨梯田 平安梯田 西山桃花节【超贵团】</h3>
-									<div class="price">网付价<em>￥</em><strong>499</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="img/product/small/m39428c374b8f8debe994cfbff6de4a3db.jpg" alt="">
-								<div class="has_border">
-									<h3>【春节 张家界天门山+大峡谷玻璃桥+凤凰古城 高铁4天】玻璃栈道 溪布老街【品土家三下锅】</h3>
-									<div class="price">网付价<em>￥</em><strong>2599</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-									<img src="img/product/small/m3b2c6e8fa0e92882b9362c68dfa504324.jpg" alt="">
-								<div class="has_border">
-									<h3>【春节 北京+天津+雪世界滑雪 双飞5天 天津往返 纯玩3+5钻】升级1晚丽都皇冠假日酒店 新春庙会 雍和宫祈福 八达岭长城【津津有味】</h3>
-									<div class="price">网付价<em>￥</em><strong>3599</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="img/product/small/m3a6e5b5ba8ef83b3057c1ac58cb0a51a9.jpg" alt="">
-								<div class="has_border">
-									<h3>【春节陕西西安兵马俑+华山+延安+黄河壶口冰瀑 双飞5天 西安往返】华清宫 黄帝陵轩辕庙 汉城湖新春庙会【贵宾团】</h3>
-									<div class="price">网付价<em>￥</em><strong>4699</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
+                    <div class="row" id="inCountry">
                     </div>
                 </div>
             </div>
@@ -283,7 +323,7 @@
         <section class="hemai_jx">
             <div class="jx_top">
                 <div class="jx_tit">
-                    <img src="images/icon_7.jpg" alt="">
+                    <img src="images/icon_6.jpg" alt="">
                     <span>境外游</span>
                 </div>
             </div>
@@ -292,66 +332,51 @@
                     <img src="images/jiangwai_1.jpg" alt="">
                 </div>
                 <div class="guone_r">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="images/jiangxuan_4.jpg" alt="">
-								<div class="has_border">
-									<h3>上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)</h3>
-									<div class="price">网付价<em>￥</em><strong>889</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="images/jiangxuan_4.jpg" alt="">
-								<div class="has_border">
-									<h3>上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)</h3>
-									<div class="price">网付价<em>￥</em><strong>889</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="images/jiangxuan_4.jpg" alt="">
-								<div class="has_border">
-									<h3>上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)</h3>
-									<div class="price">网付价<em>￥</em><strong>889</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="images/jiangxuan_4.jpg" alt="">
-								<div class="has_border">
-									<h3>上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)</h3>
-									<div class="price">网付价<em>￥</em><strong>889</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-									<img src="images/jiangxuan_4.jpg" alt="">
-								<div class="has_border">
-									<h3>上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)</h3>
-									<div class="price">网付价<em>￥</em><strong>889</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="route_detail.html">
-								<img src="images/jiangxuan_4.jpg" alt="">
-								<div class="has_border">
-									<h3>上海直飞三亚5天4晚自由行(春节预售+亲子/蜜月/休闲游首选+豪华酒店任选+接送机)</h3>
-									<div class="price">网付价<em>￥</em><strong>889</strong><em>起</em></div>									
-								</div>
-							</a>
-                        </div>
+                    <div class="row" id="outCountry">
                     </div>
                 </div>
             </div>
         </section>
         <!-- 境外游 end-->
+        <!-- 全球自由行 start-->
+        <section class="hemai_jx">
+            <div class="jx_top">
+                <div class="jx_tit">
+                    <img src="images/icon_6.jpg" alt="">
+                    <span>全球自由行</span>
+                </div>
+            </div>
+            <div class="heima_gn">
+                <div class="guonei_l">
+                    <img src="images/guonei_1.jpg" alt="">
+                </div>
+                <div class="guone_r">
+                    <div class="row" id="global">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 全球自由行 end-->
+        <!-- 抱团定制 start-->
+        <section class="hemai_jx">
+            <div class="jx_top">
+                <div class="jx_tit">
+                    <img src="images/icon_6.jpg" alt="">
+                    <span>抱团定制</span>
+                </div>
+            </div>
+            <div class="heima_gn">
+                <div class="guonei_l">
+                    <img src="images/jiangwai_1.jpg" alt="">
+                </div>
+                <div class="guone_r">
+                    <div class="row" id="custom">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 抱团定制 end-->
+        
     </section>
     <!-- 旅游 end-->
    <!--导入底部-->
